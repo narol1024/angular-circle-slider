@@ -26,9 +26,10 @@
 - **max** 最大值
 
 #### Support
-`ie9+`  `chrome` `firefox` `safari`
+`ie`  `chrome` `firefox` `safari`
 
 ####License
 --------
 This plugin is licensed under the MIT license.
+
 Copyright (c) 2015 linjinying

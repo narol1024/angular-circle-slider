@@ -4,7 +4,10 @@
     "linjinying <junejinying@gmail.com>"
   ],
   "description": "angular circle slider",
-  "main": "",
+  "main" : [
+    "dist/js/angular-circle-slider.min.js",
+    "dist/css/angular-circle-slider.min.css"
+  ],
   "moduleType": [],
   "keywords": [
     "angular",
@@ -15,7 +18,6 @@
   ],
   "license": "MIT",
   "homepage": "www.w3cin.com",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",

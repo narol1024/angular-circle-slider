@@ -13,11 +13,14 @@
 ```html
 <div circle-slider value="transofrmValue" max="360"></div>
 ```
+
 #### Options
 - **value**  初始化的数据
 - **max** 最大值
+
 #### Support
 `ie9+`  `chrome` `firefox` `safari`
+
 ####License
 --------
 This plugin is licensed under the MIT license.

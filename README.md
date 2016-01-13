@@ -11,10 +11,10 @@
 
 ####Basic Usage
 > `<div circle-slider value="transofrmValue" max="360"></div>`  
-#### Options
+####Options
 - **value**  初始化的数据
 - **max** 最大值
-#### Support  
+####Support  
 `ie9+`  `chrome` `firefox` `safari`  
 ####License
 --------

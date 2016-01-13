@@ -14,7 +14,7 @@
 #### Options
 - **value**  初始化的数据
 - **max** 最大值
-#### Support
+#### Support  
 `ie9+`  `chrome` `firefox` `safari`
 ####License
 --------

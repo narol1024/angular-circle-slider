@@ -8,6 +8,7 @@
 
 ####Install
 > bower install angular-circle-slider
+
 > npm install angular-circle-slider
 
 ####Basic Usage

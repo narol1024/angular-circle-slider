@@ -15,7 +15,7 @@
 - **value**  初始化的数据
 - **max** 最大值
 #### Support  
-`ie9+`  `chrome` `firefox` `safari`
+`ie9+`  `chrome` `firefox` `safari`  
 ####License
 --------
 This plugin is licensed under the MIT license.

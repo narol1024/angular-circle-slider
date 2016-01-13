@@ -1,0 +1,26 @@
+{
+  "name": "angular-circle-slider",
+  "authors": [
+    "linjinying <junejinying@gmail.com>"
+  ],
+  "description": "angular circle slider",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "angular",
+    "circular",
+    "round",
+    "slider",
+    "circle"
+  ],
+  "license": "MIT",
+  "homepage": "www.w3cin.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

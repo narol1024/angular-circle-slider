@@ -1,0 +1,51 @@
+$circleSize:100px;
+$circleBorderSize:5px;
+$circleBorder:$circleBorderSize solid #eee;
+$handlerSize:10px;
+$handlerColor:#ddd;
+$textColor:#000;
+$textSize:16px;
+.circle {
+    position: relative;
+    width: $circleSize;
+    height: $circleSize;
+    border: $circleBorder;
+    border-radius: 50%;
+    text-align: center;
+    box-sizing: border-box;
+    .handler {
+        position: absolute;
+        height: $handlerSize;
+        width: $handlerSize;
+        background-color: $handlerColor;
+        border-radius: 50%;
+        box-sizing: border-box;
+        cursor: default;
+        outline: 0;
+    }
+    .text-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: table;
+        width: $circleSize - $handlerSize;
+        height: $circleSize - $handlerSize;
+        box-sizing: border-box;
+        color: $textColor;
+        .text {
+            display: table-cell;
+            box-sizing: border-box;
+            text-align: center;
+            vertical-align: middle;
+            word-break: break-all;
+            font-size: $textSize;
+            font-family: 'arial';
+            cursor: default;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+    }
+}

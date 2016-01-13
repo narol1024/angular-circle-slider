@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>circleSlider</title>
+    <link rel="stylesheet" href="css/angular-circle-slider.css">
+    <script src="./libs/js/jquery.js"></script>
+    <script src="./libs/js/angular-1.4.8.js"></script>
+    <style>
+    body {
+        margin: 40px;
+    }
+
+    .box {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 100px;
+        background-color: #f1f1f1;
+    }
+    </style>
+</head>
+
+<body ng-app="app" ng-controller="ctrl">
+    <div class="box" ng-style="{'transform':'rotate('+transofrmValue+'deg)'}"></div>
+    <div circle-slider value="transofrmValue" max="360"></div>
+</body>
+<script src="./js/angular-circle-slider.js"></script>
+<script>
+var app = angular.module('app', ['ui.circleSlider']);
+app.controller('ctrl', ['$scope', function($scope) {
+    $scope.transofrmValue = 60;
+    $scope.style = {
+        'transform': 'rotate(' + $scope.transofrmValue + 'deg)'
+    };
+}])
+</script>
+
+</html>

@@ -6,6 +6,12 @@
 - **键盘事件** 支持键盘事件
 - **自定义你的样式** 采用sass编译
 
+####[Demo](http://w3cin.com/demo/angular-circle-slider/index.html)
+
+####Requirements
+- **jquery**
+- **angular**
+
 ####Install
 > bower install angular-circle-slider
 

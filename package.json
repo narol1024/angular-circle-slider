@@ -1,0 +1,29 @@
+{
+  "name": "angular-circle-slider",
+  "version": "1.0.0",
+  "description": "angular-circle-slider",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linjinying/angular-circle-slider.git"
+  },
+  "keywords": [
+    "circle",
+    "slider",
+    "round",
+    "circular",
+    "angular"
+  ],
+  "author": "linjinying",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/linjinying/angular-circle-slider/issues"
+  },
+  "homepage": "https://github.com/linjinying/angular-circle-slider#readme"
+}

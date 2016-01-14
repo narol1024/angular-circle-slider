@@ -7,7 +7,7 @@ angular.module('ui.circleSlider', []).directive('circleSlider', ['$document', '$
             max: '@',
             readonly: '@',
             onSliderStart: '=',
-            onChange: '=',
+            onSliderChange: '=',
             onSliderEnd: '='
         },
         template: '<div class="circle" tabIndex="0">' +
@@ -17,7 +17,7 @@ angular.module('ui.circleSlider', []).directive('circleSlider', ['$document', '$
         link: function(scope, element, attr) {
             var readonly = attr.readonly;
             var onSliderStart = attr.onSliderStart;
-            var onChange = attr.onChange;
+            var onSliderChange = attr.onSliderChange;
             var onSliderEnd = attr.onSliderEnd;
             var $circle = element;
             var $handler = $circle.find('.handler');
@@ -33,8 +33,8 @@ angular.module('ui.circleSlider', []).directive('circleSlider', ['$document', '$
 
             scope.$watch('value', function(newValue, oldValue) {
                 transform(scope.value);
-                if (newValue !== oldValue && onChange) {
-                    scope.onChange(newValue);
+                if (newValue !== oldValue && onSliderChange) {
+                    scope.onSliderChange(newValue);
                 }
             });
 

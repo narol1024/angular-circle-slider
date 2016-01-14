@@ -3,7 +3,7 @@
 -------
 ####[Demo](http://w3cin.com/demo/angular-circle-slider/index.html)
 一个基于angularJS的圆形slider，目前具备一下功能：
-- **基本功能** 滑动圆点修改数据
+- **基本功能** 滑动圆环修改数据
 - **键盘事件** 支持键盘事件
 - **自定义你的样式** 采用sass编译
 
@@ -24,6 +24,10 @@
 #### Options
 - **value**  初始化的数据
 - **max** 最大值
+- **readonly** 只读
+- **onSliderStart** 开始滑动事件
+- **onSliderEnd** 结束滑动事件
+- **onSliderChange** 滑动事件
 
 #### Support
 `ie`  `chrome` `firefox` `safari`

@@ -4,13 +4,21 @@ angular.module('ui.circleSlider', []).directive('circleSlider', ['$document', '$
         replace: true,
         scope: {
             value: '=',
-            max: '@'
+            max: '@',
+            readonly: '@',
+            onSliderStart: '=',
+            onChange: '=',
+            onSliderEnd: '='
         },
-        template: '<div class="circle">' +
+        template: '<div class="circle" tabIndex="0">' +
             '   <div class="text-wrap"><span class="text"></span></div>' +
-            '   <div class="handler" tabIndex="0"></div>' +
+            '   <div class="handler"></div>' +
             '</div>',
         link: function(scope, element, attr) {
+            var readonly = attr.readonly;
+            var onSliderStart = attr.onSliderStart;
+            var onChange = attr.onChange;
+            var onSliderEnd = attr.onSliderEnd;
             var $circle = element;
             var $handler = $circle.find('.handler');
             var $text = $circle.find('.text');
@@ -25,6 +33,9 @@ angular.module('ui.circleSlider', []).directive('circleSlider', ['$document', '$
 
             scope.$watch('value', function(newValue, oldValue) {
                 transform(scope.value);
+                if (newValue !== oldValue && onChange) {
+                    scope.onChange(newValue);
+                }
             });
 
             function transform(deg) {
@@ -38,31 +49,48 @@ angular.module('ui.circleSlider', []).directive('circleSlider', ['$document', '$
                 $text.html(perc + "&deg;");
             }
 
-            $handler.bind('mousedown', function() {
-                $document.bind('mousemove', mousemove);
-                $document.bind('mouseup', mouseup);
+            //圆环拖动
+            $circle.bind('mousedown', function(event) {
+                if (!readonly) {
+                    var result = calculation(event);
+                    if (onSliderStart) {
+                        scope.onSliderStart(result);
+                    }
+                    $document.bind('mousemove', calculation);
+                    $document.bind('mouseup', mouseup);
+                }
             });
 
-            function mousemove(event) {
+            function calculation(event) {
                 var position = {
                     x: event.pageX - circlePosition.x,
                     y: event.pageY - circlePosition.y
                 };
                 var atan = Math.atan2(position.x - circleWidthHelf, position.y - circleWidthHelf);
-                var deg = -atan / PI2 + 180;
+                var deg = parseInt(-atan / PI2 + 180);
                 $timeout(function() {
                     transform(deg);
-                    scope.value = parseInt(deg);
+                    scope.value = deg || scope.value;
                 }, 30);
+                return deg || scope.value;
             }
 
             function mouseup() {
-                $document.unbind('mousemove', mousemove);
+                if (onSliderEnd) {
+                    scope.onSliderEnd(scope.value);
+                }
+                $document.unbind('mousemove', calculation);
                 $document.unbind('mouseup', mouseup)
             }
-            $handler.bind('keydown', keydown);
+
+            //键盘绑定事件
+            $circle.bind('keydown', keydown);
+            $circle.bind('keydown', keyup);
 
             function keydown(event) {
+                if (onSliderStart) {
+                    scope.onSliderStart(scope.value);
+                }
                 switch (event.keyCode) {
                     case 40:
                     case 39:
@@ -79,6 +107,12 @@ angular.module('ui.circleSlider', []).directive('circleSlider', ['$document', '$
                         break;
                     default:
                         break;
+                }
+            }
+
+            function keyup() {
+                if (onSliderEnd) {
+                    scope.onSliderEnd(scope.value);
                 }
             }
         }

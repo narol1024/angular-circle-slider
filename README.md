@@ -32,4 +32,4 @@
 --------
 This plugin is licensed under the MIT license.
 
-Copyright (c) 2015 linjinying
+Copyright (c) 2016 linjinying

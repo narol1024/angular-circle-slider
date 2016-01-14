@@ -13,6 +13,7 @@ $textSize:16px;
     border-radius: 50%;
     text-align: center;
     box-sizing: border-box;
+    outline: 0;
     .handler {
         position: absolute;
         height: $handlerSize;
@@ -21,7 +22,6 @@ $textSize:16px;
         border-radius: 50%;
         box-sizing: border-box;
         cursor: default;
-        outline: 0;
     }
     .text-wrap {
         position: absolute;

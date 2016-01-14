@@ -85,7 +85,7 @@ angular.module('ui.circleSlider', []).directive('circleSlider', ['$document', '$
 
             //键盘绑定事件
             $circle.bind('keydown', keydown);
-            $circle.bind('keydown', keyup);
+            $circle.bind('keyup', keyup);
 
             function keydown(event) {
                 if (onSliderStart) {

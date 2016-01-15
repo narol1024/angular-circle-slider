@@ -30,7 +30,7 @@
 - **onSliderChange** 滑动事件
 
 #### Support
-`ie`  `chrome` `firefox` `safari`
+`ie9+`  `chrome` `firefox` `safari`
 
 ####License
 --------

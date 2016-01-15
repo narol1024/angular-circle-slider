@@ -1,6 +1,11 @@
+/**
+ * 作者:linjinying
+ * time:2016-1-13
+ * plugin-name: ui.circleSlider
+ */
 angular.module('ui.circleSlider', []).directive('circleSlider', ['$document', '$timeout', function($document, $timeout) {
     return {
-        restrict: 'A',
+        restrict: 'EA',
         replace: true,
         scope: {
             value: '=',
@@ -30,7 +35,7 @@ angular.module('ui.circleSlider', []).directive('circleSlider', ['$document', '$
                 y: circleOffset.top
             };
             var PI2 = Math.PI / 180;
-
+            var timer;
             scope.$watch('value', function(newValue, oldValue) {
                 transform(scope.value);
                 if (newValue !== oldValue && onSliderChange) {
@@ -68,9 +73,10 @@ angular.module('ui.circleSlider', []).directive('circleSlider', ['$document', '$
                 };
                 var atan = Math.atan2(position.x - circleWidthHelf, position.y - circleWidthHelf);
                 var deg = parseInt(-atan / PI2 + 180);
-                $timeout(function() {
                     transform(deg);
+                timer = $timeout(function() {
                     scope.value = deg || scope.value;
+                    $timeout.cancel(timer);
                 }, 30);
                 return deg || scope.value;
             }

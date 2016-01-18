@@ -29,11 +29,7 @@ angular.module('ui.circleSlider', []).directive('circleSlider', ['$document', '$
             var $text = $circle.find('.text');
             var circleWidthHelf = $circle.width() / 2;
             var handlerWidthHelf = $handler.width() / 2;
-            var circleOffset = $circle.offset();
-            var circlePosition = {
-                x: circleOffset.left,
-                y: circleOffset.top
-            };
+
             var PI2 = Math.PI / 180;
             var timer;
             scope.$watch('value', function(newValue, oldValue) {
@@ -67,9 +63,10 @@ angular.module('ui.circleSlider', []).directive('circleSlider', ['$document', '$
             });
 
             function calculation(event) {
+                var circleOffset = $circle.offset();
                 var position = {
-                    x: event.pageX - circlePosition.x,
-                    y: event.pageY - circlePosition.y
+                    x: event.pageX - circleOffset.left,
+                    y: event.pageY - circleOffset.top
                 };
                 var atan = Math.atan2(position.x - circleWidthHelf, position.y - circleWidthHelf);
                 var deg = parseInt(-atan / PI2 + 180);

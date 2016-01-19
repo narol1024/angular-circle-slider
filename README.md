@@ -19,6 +19,7 @@
 ####Basic Usage
 ```html
 <div circle-slider value="transofrmValue" max="360"></div>
+var app = angular.module('app',['ui.circleSlider']);
 ```
 
 #### Options

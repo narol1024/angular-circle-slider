@@ -1,4 +1,5 @@
 ###angular-circle-slider
+===========================
 ![angular-circle-slider](https://github.com/linjinying/angular-circle-slider/blob/master/screenshot.png)  
 
 ###注意

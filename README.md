@@ -23,6 +23,11 @@ This directive is now obsolete. A new initiative, more active is available at [a
 - **jquery**
 - **angular**
 
+####Install
+> bower install angular-circle-slider
+
+> npm install angular-circle-slider
+
 #### Basic Usage
 
 **html代码** 

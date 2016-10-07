@@ -1,8 +1,7 @@
 $circleSize:100px;
-$circleBorderSize:5px;
-$circleBorder:$circleBorderSize solid #eee;
+$circleBorder:5px solid #ccc;
 $handlerSize:10px;
-$handlerColor:#ddd;
+$handlerColor:#dedede;
 $textColor:#000;
 $textSize:16px;
 .circle {
@@ -41,10 +40,6 @@ $textSize:16px;
             font-size: $textSize;
             font-family: 'arial';
             cursor: default;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            -moz-user-select: none;
-            -o-user-select: none;
             user-select: none;
         }
     }

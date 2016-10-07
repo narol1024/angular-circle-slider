@@ -1,35 +1,51 @@
 ###angular-circle-slider
+![angular-circle-slider](https://github.com/linjinying/angular-circle-slider/blob/master/screenshot.png)  
 
--------
-####[Demo](http://w3cin.com/demo/angular-circle-slider/index.html)
-一个基于angularJS的圆形slider(a circular slider based on angularJS)，目前具备一下功能：
-- **基本功能** 滑动圆环修改数据
-- **键盘事件** 支持键盘事件
-- **自定义你的样式** 采用sass编译
+###注意
+该组件将作为ui组件的形式并入[angular-components](https://github.com/linjinying/angular-components/tree/master/angular-circle-slider)。此版本不再维护。
 
-####Requirements
+###Annoucement
+This directive is now obsolete. A new initiative, more active is available at [angular-components](https://github.com/linjinying/angular-components/tree/master/angular-circle-slider).
+
+### demo
+[click here](http://www.w3cin.com/demo/angular-components/angular-circle-slider/)
+
+### 说明
+一个基于angularJS的圆形slider(a circular slider based on angularJS)，目前支持的API有： 
+- **value**  初始化的数据
+- **readonly** 只读
+- **onStart** `function(value){}`开始滚动事件
+- **onFinish** `function(value){}`结束滚动事件
+- **onChange** `function(value){}`滑动Change事件
+
+#### Requirements
 - **jquery**
 - **angular**
 
-####Install
-> bower install angular-circle-slider
+#### Basic Usage
 
-> npm install angular-circle-slider
-
-####Basic Usage
+**html代码** 
 ```html
-<div circle-slider value="transofrmValue" max="360"></div>
-var app = angular.module('app',['ui.circleSlider']);
+<div circle-slider="options"></div>
 ```
-
-#### Options
-- **value**  初始化的数据
-- **max** 最大值
-- **readonly** 只读
-- **onSliderStart** 开始滑动事件
-- **onSliderEnd** 结束滑动事件
-- **onSliderChange** 滑动事件
-
+**angular代码**  
+```javascript
+var app = angular.module('app', ['ui.circleSlider']);
+app.controller('ctrl', ['$scope', function($scope) {
+    $scope.options = {
+    	value:60,
+        onStart:function(value){
+            console.info('startValue:' + value);
+        },
+        onChange:function(value){
+            console.info('currentValue:' + value);
+        },
+        onFinish:function(value){
+            console.info('endValue:' + value);
+        }
+    }
+}]);
+```
 #### Support
 `ie9+`  `chrome` `firefox` `safari`
 

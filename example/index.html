@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
-    <title>circleSlider</title>
-    <link rel="stylesheet" href="../src/css/angular-circle-slider.css">
-    <script src="../src/libs/js/jquery.js"></script>
-    <script src="../src/libs/js/angular-1.4.8.js"></script>
+    <title>angular-circle-slider</title>
+    <link rel="stylesheet" href="../dist/css/angular-circle-slider.css">
+    <script src="../libs/js/jquery.js"></script>
+    <script src="../libs/js/angular-1.4.8.js"></script>
+    <script src="../dist/js/angular-circle-slider.js"></script>
     <style>
     body {
         margin: 40px;
@@ -16,7 +17,7 @@
         display: inline-block;
         width: 100px;
         height: 100px;
-        margin-bottom: 100px;
+        margin: 0 0 100px 200px;
         background-color: #f1f1f1;
     }
 
@@ -31,24 +32,26 @@
 </head>
 
 <body ng-app="app" ng-controller="ctrl">
-    <div class="box" style="transform:rotate({{transofrmValue}}deg)"></div>
-    <div class="box2" style="box-shadow:{{transofrmValue | boxshadow}}"></div>
-    <div circle-slider value="transofrmValue" max="360" on-slider-start="start" on-slider-change="change" on-slider-end="end"></div>
+    <div circle-slider="options"></div>
+    <div class="box" style="transform:rotate({{options.value}}deg)"></div>
+    <div class="box2" style="box-shadow:{{options.value | boxshadow}}"></div>
 </body>
-<script src="../src/js/angular-circle-slider.js"></script>
+
 <script>
 var app = angular.module('app', ['ui.circleSlider']);
 app.controller('ctrl', ['$scope', function($scope) {
-    $scope.transofrmValue = 60;
-    $scope.start = function(value) {
-        console.info('startValue:' + value);
-    };
-    $scope.change = function(value) {
-        console.info('currentValue:' + value);
-    };
-    $scope.end = function(value) {
-        console.info('endValue:' + value);
-    };
+    $scope.options = {
+        value:60,
+        onStart:function(value){
+            console.info('startValue:' + value);
+        },
+        onChange:function(value){
+            console.info('currentValue:' + value);
+        },
+        onFinish:function(value){
+            console.info('endValue:' + value);
+        }
+    }
 }]);
 app.filter('boxshadow', function() {
     return function(object) {
